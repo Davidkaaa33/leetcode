@@ -38,4 +38,17 @@ jobs:
         env:
           LEETCODE_SESSION: ${{ secrets.LEETCODE_SESSION }}
           CSRFTOKEN: ${{ secrets.CSRFTOKEN }}
-        run: leetcode-sync --sync --push
+        run: leetcode-sync --sync
+
+      - name: Generate Deep-ML style README
+        run: python scripts/generate_readme.py
+
+      - name: Commit and push changes
+        run: |
+          git add problems README.md coverage.svg
+          if git diff --cached --quiet; then
+            echo "Nothing to commit."
+            exit 0
+          fi
+          git commit -m "Auto sync LeetCode submissions"
+          git push
