@@ -41,6 +41,9 @@ jobs:
         run: leetcode-sync --sync
 
       - name: Generate Deep-ML style README
+        env:
+          LEETCODE_SESSION: ${{ secrets.LEETCODE_SESSION }}
+          CSRFTOKEN: ${{ secrets.CSRFTOKEN }}
         run: python scripts/generate_readme.py
 
       - name: Commit and push changes
