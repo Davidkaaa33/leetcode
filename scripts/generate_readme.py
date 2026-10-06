@@ -1,11 +1,15 @@
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
-import html
+import os
 import subprocess
+
+import requests
 
 ROOT = Path("problems")
 DIFFICULTIES = ("easy", "medium", "hard")
 MSK = timezone(timedelta(hours=3))
+GRAPHQL_URL = "https://leetcode.com/graphql/"
+FALLBACK_TOTALS = {"easy": 966, "medium": 2117, "hard": 977}
 
 
 def solved_date(path: Path) -> str:
@@ -53,69 +57,136 @@ def collect_problems():
     return problems, counts
 
 
-def generate_coverage_svg(counts):
-    total = sum(counts.values())
-    easy = counts["easy"]
-    medium = counts["medium"]
-    hard = counts["hard"]
+def fetch_problem_totals(solved_counts):
+    query = """
+    query problemCounts {
+      allQuestionsCount {
+        difficulty
+        count
+      }
+    }
+    """
 
-    width = 920
-    height = 180
-    bar_x = 40
-    bar_y = 125
-    bar_w = 840
-    bar_h = 14
+    headers = {
+        "Content-Type": "application/json",
+        "Referer": "https://leetcode.com/problemset/",
+        "User-Agent": "Mozilla/5.0",
+    }
 
-    def segment_width(value):
-        return 0 if total == 0 else round(bar_w * value / total, 2)
+    session = os.getenv("LEETCODE_SESSION")
+    csrf = os.getenv("CSRFTOKEN")
+    if session and csrf:
+        headers["Cookie"] = f"LEETCODE_SESSION={session}; csrftoken={csrf}"
+        headers["x-csrftoken"] = csrf
 
-    easy_w = segment_width(easy)
-    medium_w = segment_width(medium)
-    hard_w = segment_width(hard)
+    try:
+        response = requests.post(
+            GRAPHQL_URL,
+            json={"query": query},
+            headers=headers,
+            timeout=20,
+        )
+        response.raise_for_status()
+        items = response.json()["data"]["allQuestionsCount"]
 
-    svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}" role="img" aria-label="LeetCode progress: {total} solved">
-<style>
-  .bg {{ fill: #ffffff; }}
-  .border {{ fill: none; stroke: #d0d7de; }}
-  .title {{ fill: #1f2328; font: 600 18px -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif; }}
-  .label {{ fill: #656d76; font: 13px -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif; }}
-  .value {{ fill: #1f2328; font: 600 24px -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif; }}
-  .track {{ fill: #eaeef2; }}
-  .easy {{ fill: #2da44e; }}
-  .medium {{ fill: #bf8700; }}
-  .hard {{ fill: #cf222e; }}
-  @media (prefers-color-scheme: dark) {{
-    .bg {{ fill: #0d1117; }}
-    .border {{ stroke: #30363d; }}
-    .title, .value {{ fill: #f0f6fc; }}
-    .label {{ fill: #8b949e; }}
-    .track {{ fill: #21262d; }}
-  }}
-</style>
-<rect class="bg" x="0.5" y="0.5" width="{width-1}" height="{height-1}" rx="10"/>
-<rect class="border" x="0.5" y="0.5" width="{width-1}" height="{height-1}" rx="10"/>
-<text class="title" x="40" y="34">LeetCode progress</text>
+        totals = {}
+        for item in items:
+            difficulty = item["difficulty"].lower()
+            if difficulty in DIFFICULTIES:
+                totals[difficulty] = int(item["count"])
 
-<text class="label" x="40" y="64">Solved</text>
-<text class="value" x="40" y="92">{total}</text>
+        if all(totals.get(d, 0) >= solved_counts[d] for d in DIFFICULTIES):
+            return totals
+    except Exception as exc:
+        print(f"Could not refresh LeetCode totals: {exc}")
 
-<text class="label" x="230" y="64">Easy</text>
-<text class="value" x="230" y="92">{easy}</text>
+    return {
+        difficulty: max(FALLBACK_TOTALS[difficulty], solved_counts[difficulty])
+        for difficulty in DIFFICULTIES
+    }
 
-<text class="label" x="420" y="64">Medium</text>
-<text class="value" x="420" y="92">{medium}</text>
 
-<text class="label" x="610" y="64">Hard</text>
-<text class="value" x="610" y="92">{hard}</text>
+def generate_coverage_svg(solved_counts, totals):
+    width = 880
+    left = 20
+    right = 860
+    cell = 5
+    gap = 2
+    pitch = cell + gap
+    columns = 118
+    section_gap = 18
+    label_to_grid = 8
+    top = 24
 
-<rect class="track" x="{bar_x}" y="{bar_y}" width="{bar_w}" height="{bar_h}" rx="7"/>
-<rect class="easy" x="{bar_x}" y="{bar_y}" width="{easy_w}" height="{bar_h}" rx="7"/>
-<rect class="medium" x="{bar_x + easy_w}" y="{bar_y}" width="{medium_w}" height="{bar_h}"/>
-<rect class="hard" x="{bar_x + easy_w + medium_w}" y="{bar_y}" width="{hard_w}" height="{bar_h}" rx="7"/>
-<text class="label" x="40" y="158">Easy / Medium / Hard distribution across solved problems</text>
-</svg>
-"""
-    Path("coverage.svg").write_text(svg, encoding="utf-8")
+    labels = {
+        "easy": "Easy",
+        "medium": "Medium",
+        "hard": "Hard",
+    }
+    classes = {
+        "easy": "e",
+        "medium": "m",
+        "hard": "h",
+    }
+
+    section_data = []
+    cursor = top
+
+    for difficulty in DIFFICULTIES:
+        total = totals[difficulty]
+        rows = max(1, (total + columns - 1) // columns)
+        label_y = cursor
+        grid_y = label_y + label_to_grid
+        section_data.append((difficulty, total, rows, label_y, grid_y))
+        cursor = grid_y + rows * pitch + section_gap
+
+    footer_y = cursor + 2
+    height = footer_y + 24
+    solved_total = sum(solved_counts.values())
+    problem_total = sum(totals.values())
+
+    parts = [
+        f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}" role="img" aria-label="LeetCode coverage: {solved_total} of {problem_total} problems solved">',
+        """<style>
+  .bg{fill:#ffffff}.tx{fill:#18181b}.dim{fill:#71717a}.none{fill:#e4e4e7}
+  .e{fill:#15a349}.m{fill:#d08700}.h{fill:#dc2626}
+  @media (prefers-color-scheme:dark){
+    .bg{fill:#0b0b0d}.tx{fill:#fafafa}.dim{fill:#8b8b95}.none{fill:#26262b}
+    .e{fill:#34d27b}.m{fill:#f5b13d}.h{fill:#f76d6d}
+  }
+</style>""",
+        f'<rect width="{width}" height="{height}" class="bg"/>',
+    ]
+
+    for difficulty, total, rows, label_y, grid_y in section_data:
+        solved = solved_counts[difficulty]
+        parts.append(
+            f'<text x="{left}" y="{label_y}" class="tx" font-size="11" '
+            f'font-family="ui-monospace,monospace">{labels[difficulty]}</text>'
+        )
+        parts.append(
+            f'<text x="{right}" y="{label_y}" class="dim" font-size="11" '
+            f'text-anchor="end" font-family="ui-monospace,monospace">{solved}/{total}</text>'
+        )
+
+        for index in range(total):
+            row = index // columns
+            col = index % columns
+            x = left + col * pitch
+            y = grid_y + row * pitch
+            css_class = classes[difficulty] if index < solved else "none"
+            parts.append(
+                f'<rect x="{x}" y="{y}" width="{cell}" height="{cell}" '
+                f'rx="1.25" class="{css_class}"/>'
+            )
+
+    parts.append(
+        f'<text x="{left}" y="{footer_y}" class="dim" font-size="11" '
+        f'font-family="ui-monospace,monospace">{solved_total} of {problem_total} problems solved on LeetCode</text>'
+    )
+    parts.append("</svg>")
+
+    Path("coverage.svg").write_text("\n".join(parts) + "\n", encoding="utf-8")
 
 
 def generate_readme(problems, counts):
@@ -156,6 +227,7 @@ def generate_readme(problems, counts):
     Path("README.md").write_text("\n".join(lines), encoding="utf-8")
 
 
-problems, counts = collect_problems()
-generate_coverage_svg(counts)
-generate_readme(problems, counts)
+problems, solved_counts = collect_problems()
+totals = fetch_problem_totals(solved_counts)
+generate_coverage_svg(solved_counts, totals)
+generate_readme(problems, solved_counts)
