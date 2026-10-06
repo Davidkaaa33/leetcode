@@ -6,6 +6,13 @@ My algorithms and data structures practice from [LeetCode](https://leetcode.com)
 
 ![Coverage](./coverage.svg)
 
+## Repository design
+
+- Accepted submissions are synchronized automatically by GitHub Actions at **00:00 MSK**.
+- The latest accepted solution is kept per problem/language; source code is stored unchanged.
+- README statistics and the coverage grid are regenerated from repository state after every sync.
+- LeetCode authentication material lives only in GitHub Actions secrets and is never committed.
+
 ## Problems
 
 | | Difficulty | Solved | |
