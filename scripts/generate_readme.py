@@ -148,12 +148,8 @@ def generate_coverage_svg(solved_counts, totals):
     parts = [
         f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}" role="img" aria-label="LeetCode coverage: {solved_total} of {problem_total} problems solved">',
         """<style>
-  .bg{fill:#ffffff}.tx{fill:#18181b}.dim{fill:#71717a}.none{fill:#e4e4e7}
-  .e{fill:#15a349}.m{fill:#d08700}.h{fill:#dc2626}
-  @media (prefers-color-scheme:dark){
-    .bg{fill:#0b0b0d}.tx{fill:#fafafa}.dim{fill:#8b8b95}.none{fill:#26262b}
-    .e{fill:#34d27b}.m{fill:#f5b13d}.h{fill:#f76d6d}
-  }
+  .bg{fill:#0d1117}.tx{fill:#e6edf3}.dim{fill:#7d8590}.none{fill:#21262d}
+  .e{fill:#3fb950}.m{fill:#d29922}.h{fill:#f85149}
 </style>""",
         f'<rect width="{width}" height="{height}" class="bg"/>',
     ]
@@ -201,12 +197,7 @@ def generate_readme(problems, counts):
         "",
         "![Coverage](./coverage.svg)",
         "",
-        "## Repository design",
-        "",
-        "- Accepted submissions are synchronized automatically by GitHub Actions at **00:00 MSK**.",
-        "- The latest accepted solution is kept per problem/language; source code is stored unchanged.",
-        "- README statistics and the coverage grid are regenerated from repository state after every sync.",
-        "- LeetCode authentication material lives only in GitHub Actions secrets and is never committed.",
+        "_Synced nightly at 00:00 MSK via GitHub Actions. Progress and this grid regenerate automatically._",
         "",
         "## Problems",
         "",
