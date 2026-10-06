@@ -31,6 +31,9 @@ jobs:
       - name: Install LeetCode sync CLI
         run: pip install leetcode-sync-cli==0.1.1
 
+      - name: Prepare LeetCode sync cache
+        run: mkdir -p "$HOME/.leetcode_sync"
+
       - name: Sync accepted LeetCode submissions
         env:
           LEETCODE_SESSION: ${{ secrets.LEETCODE_SESSION }}
