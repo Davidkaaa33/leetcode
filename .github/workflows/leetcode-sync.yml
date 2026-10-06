@@ -1,0 +1,38 @@
+name: Sync LeetCode
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 20 * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Configure Git identity
+        run: |
+          git config user.name "Davidkaaa33"
+          git config user.email "233500698+Davidkaaa33@users.noreply.github.com"
+
+      - name: Install LeetCode sync CLI
+        run: pip install leetcode-sync-cli==0.1.1
+
+      - name: Sync accepted LeetCode submissions
+        env:
+          LEETCODE_SESSION: ${{ secrets.LEETCODE_SESSION }}
+          CSRFTOKEN: ${{ secrets.CSRFTOKEN }}
+        run: leetcode-sync --sync --push
