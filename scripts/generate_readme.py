@@ -268,7 +268,7 @@ def generate_readme(problems, counts):
         ]
     )
 
-    Path("README.md").write_text("\\n".join(lines), encoding="utf-8")
+    Path("README.md").write_text("\n".join(lines), encoding="utf-8")
 
 
 problems, solved_counts = collect_problems()
