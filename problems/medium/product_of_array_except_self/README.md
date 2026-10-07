@@ -1,10 +1,5 @@
-# product-of-array-except-self
+# Product Of Array Except Self
 
-## Difficulty: 
-Medium
+**Difficulty:** Medium · **Language:** Python 3
 
-## Language:
-python3
-
-## Notes:
-- Add any notes or explanations about your solution here.
+[Problem on LeetCode](https://leetcode.com/problems/product-of-array-except-self/) · [Solution](solution.py)

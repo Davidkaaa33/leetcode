@@ -1,10 +1,5 @@
-# kth-largest-element-in-an-array
+# Kth Largest Element In An Array
 
-## Difficulty: 
-Medium
+**Difficulty:** Medium · **Language:** Python 3
 
-## Language:
-python3
-
-## Notes:
-- Add any notes or explanations about your solution here.
+[Problem on LeetCode](https://leetcode.com/problems/kth-largest-element-in-an-array/) · [Solution](solution.py)

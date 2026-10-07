@@ -1,10 +1,5 @@
-# merge-sorted-array
+# Merge Sorted Array
 
-## Difficulty: 
-Easy
+**Difficulty:** Easy · **Language:** Python 3
 
-## Language:
-python3
-
-## Notes:
-- Add any notes or explanations about your solution here.
+[Problem on LeetCode](https://leetcode.com/problems/merge-sorted-array/) · [Solution](solution.py)

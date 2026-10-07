@@ -212,24 +212,31 @@ def generate_readme(problems, counts):
     for problem in problems:
         lines.append(
             f"| [{problem['title']}](https://leetcode.com/problems/{problem['slug']}/) "
-            f"| {problem['difficulty']} | {problem['solved']} "
+            f"| {problem['difficulty'].capitalize()} | {problem['solved']} "
             f"| [solution]({problem['path']}) |"
         )
 
-    lines.extend(
-        [
-            "",
-            "---",
-            "",
-            "_This file is regenerated automatically after every LeetCode sync._",
-            "",
-        ]
-    )
-
+    lines.append("")
     Path("README.md").write_text("\n".join(lines), encoding="utf-8")
+
+
+def generate_problem_readmes(problems):
+    difficulty_labels = {"easy": "Easy", "medium": "Medium", "hard": "Hard"}
+
+    for problem in problems:
+        readme = Path(problem["path"]) / "README.md"
+        readme.write_text(
+            f"# {problem['title']}\n\n"
+            f"**Difficulty:** {difficulty_labels[problem['difficulty']]} · "
+            f"**Language:** Python 3\n\n"
+            f"[Problem on LeetCode](https://leetcode.com/problems/{problem['slug']}/) · "
+            f"[Solution](solution.py)\n",
+            encoding="utf-8",
+        )
 
 
 problems, solved_counts = collect_problems()
 totals = fetch_problem_totals(solved_counts)
 generate_coverage_svg(solved_counts, totals)
 generate_readme(problems, solved_counts)
+generate_problem_readmes(problems)

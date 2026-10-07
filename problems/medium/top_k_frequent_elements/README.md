@@ -1,10 +1,5 @@
-# top-k-frequent-elements
+# Top K Frequent Elements
 
-## Difficulty: 
-Medium
+**Difficulty:** Medium · **Language:** Python 3
 
-## Language:
-python3
-
-## Notes:
-- Add any notes or explanations about your solution here.
+[Problem on LeetCode](https://leetcode.com/problems/top-k-frequent-elements/) · [Solution](solution.py)

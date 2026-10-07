@@ -1,10 +1,5 @@
-# add-to-array-form-of-integer
+# Add To Array Form Of Integer
 
-## Difficulty: 
-Easy
+**Difficulty:** Easy · **Language:** Python 3
 
-## Language:
-python3
-
-## Notes:
-- Add any notes or explanations about your solution here.
+[Problem on LeetCode](https://leetcode.com/problems/add-to-array-form-of-integer/) · [Solution](solution.py)

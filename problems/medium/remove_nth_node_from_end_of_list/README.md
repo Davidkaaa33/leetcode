@@ -1,10 +1,5 @@
-# remove-nth-node-from-end-of-list
+# Remove Nth Node From End Of List
 
-## Difficulty: 
-Medium
+**Difficulty:** Medium · **Language:** Python 3
 
-## Language:
-python3
-
-## Notes:
-- Add any notes or explanations about your solution here.
+[Problem on LeetCode](https://leetcode.com/problems/remove-nth-node-from-end-of-list/) · [Solution](solution.py)

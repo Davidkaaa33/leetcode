@@ -1,10 +1,5 @@
-# number-of-islands
+# Number Of Islands
 
-## Difficulty: 
-Medium
+**Difficulty:** Medium · **Language:** Python 3
 
-## Language:
-python3
-
-## Notes:
-- Add any notes or explanations about your solution here.
+[Problem on LeetCode](https://leetcode.com/problems/number-of-islands/) · [Solution](solution.py)
