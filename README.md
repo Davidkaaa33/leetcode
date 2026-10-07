@@ -1,16 +1,62 @@
-# LeetCode
+# LeetCode — Algorithms & Data Structures
 
-My algorithms and data structures practice from [LeetCode](https://leetcode.com). Every solution here was written by hand.
+A continuously maintained collection of algorithm and data-structure practice from [LeetCode](https://leetcode.com). Every solution in this repository was written by hand.
 
 **25** solved · 15 easy · 10 medium · 0 hard
 
 ![Coverage](./coverage.svg)
 
-_Synced nightly at 00:00 MSK via GitHub Actions. Progress and this grid regenerate automatically._
+_Synced nightly at 00:00 MSK via GitHub Actions. Accepted submissions, dates, the problem index and coverage visualization are regenerated automatically._
+
+## Why this repository exists
+
+The purpose of this repository is to strengthen the software-engineering and algorithmic foundations that support production ML work: choosing suitable data structures, reasoning about complexity, recognizing standard patterns and writing small correct implementations under clear constraints.
+
+It is intentionally kept separate from my ML case studies. The ML repositories demonstrate modeling, validation, APIs and deployment; this repository demonstrates ongoing **DS&A problem-solving discipline**.
+
+## Workflow
+
+~~~text
+accepted LeetCode submission
+        ↓
+nightly authenticated sync
+        ↓
+problem stored by difficulty
+        ↓
+first-solved date recovered from Git history
+        ↓
+README + coverage.svg regenerated
+        ↓
+changes committed automatically
+~~~
+
+The automation is implemented in .github/workflows/leetcode-sync.yml and scripts/generate_readme.py. If LeetCode's live problem totals cannot be refreshed, the generator falls back to conservative local totals so README generation remains deterministic.
+
+## Repository structure
+
+~~~text
+problems/
+├── easy/
+├── medium/
+└── hard/
+
+scripts/generate_readme.py       progress / index generator
+.github/workflows/leetcode-sync.yml
+coverage.svg                    generated coverage visualization
+README.md                       generated problem index
+~~~
+
+## What I focus on while solving
+
+- selecting the appropriate data structure before coding;
+- reducing unnecessary time or space complexity;
+- handling boundary cases explicitly;
+- recognizing reusable patterns rather than memorizing isolated answers;
+- keeping implementations readable enough to revisit later.
 
 ## Problems
 
-| | Difficulty | Solved | |
+| Problem | Difficulty | Solved | Solution |
 | --- | --- | --- | --- |
 | [Add Strings](https://leetcode.com/problems/add-strings/) | easy | 2026-10-06 | [solution](problems/easy/add_strings) |
 | [Add To Array Form Of Integer](https://leetcode.com/problems/add-to-array-form-of-integer/) | easy | 2026-10-06 | [solution](problems/easy/add_to_array_form_of_integer) |
@@ -40,4 +86,4 @@ _Synced nightly at 00:00 MSK via GitHub Actions. Progress and this grid regenera
 
 ---
 
-_This file is regenerated automatically after every LeetCode sync._
+_This README and the coverage grid are regenerated automatically after every sync._
