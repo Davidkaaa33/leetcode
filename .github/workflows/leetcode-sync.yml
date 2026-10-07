@@ -40,7 +40,7 @@ jobs:
           CSRFTOKEN: ${{ secrets.CSRFTOKEN }}
         run: leetcode-sync --sync
 
-      - name: Generate Deep-ML style README
+      - name: Generate portfolio README and coverage
         env:
           LEETCODE_SESSION: ${{ secrets.LEETCODE_SESSION }}
           CSRFTOKEN: ${{ secrets.CSRFTOKEN }}
