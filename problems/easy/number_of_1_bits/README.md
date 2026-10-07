@@ -1,4 +1,4 @@
-# Number Of 1 Bits
+# Number of 1 Bits
 
 **Difficulty:** Easy · **Language:** Python 3
 

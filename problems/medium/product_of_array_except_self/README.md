@@ -1,4 +1,4 @@
-# Product Of Array Except Self
+# Product of Array Except Self
 
 **Difficulty:** Medium · **Language:** Python 3
 

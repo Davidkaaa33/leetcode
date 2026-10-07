@@ -1,4 +1,4 @@
-# Sum Of Subarray Minimums
+# Sum of Subarray Minimums
 
 **Difficulty:** Medium · **Language:** Python 3
 

@@ -1,4 +1,4 @@
-# Number Of Islands
+# Number of Islands
 
 **Difficulty:** Medium · **Language:** Python 3
 

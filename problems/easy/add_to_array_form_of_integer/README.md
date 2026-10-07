@@ -1,4 +1,4 @@
-# Add To Array Form Of Integer
+# Add to Array Form of Integer
 
 **Difficulty:** Easy · **Language:** Python 3
 

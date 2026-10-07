@@ -1,4 +1,4 @@
-# Kth Largest Element In An Array
+# Kth Largest Element in an Array
 
 **Difficulty:** Medium · **Language:** Python 3
 

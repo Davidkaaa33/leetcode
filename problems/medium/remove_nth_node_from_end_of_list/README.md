@@ -1,4 +1,4 @@
-# Remove Nth Node From End Of List
+# Remove Nth Node from End of List
 
 **Difficulty:** Medium · **Language:** Python 3
 

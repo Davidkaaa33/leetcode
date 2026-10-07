@@ -1,4 +1,4 @@
-# Maximum Depth Of Binary Tree
+# Maximum Depth of Binary Tree
 
 **Difficulty:** Easy · **Language:** Python 3
 

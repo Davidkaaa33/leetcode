@@ -28,7 +28,18 @@ def solved_date(path: Path) -> str:
 def display_title(folder_name: str) -> str:
     words = folder_name.replace("_", " ").split()
     roman = {"ii": "II", "iii": "III", "iv": "IV", "vi": "VI"}
-    return " ".join(roman.get(word.lower(), word.capitalize()) for word in words)
+    stop_words = {"a", "an", "and", "as", "at", "but", "by", "for", "from", "in", "into", "of", "on", "or", "the", "to", "with"}
+
+    formatted = []
+    for index, word in enumerate(words):
+        lower = word.lower()
+        if lower in roman:
+            formatted.append(roman[lower])
+        elif index > 0 and lower in stop_words:
+            formatted.append(lower)
+        else:
+            formatted.append(lower.capitalize())
+    return " ".join(formatted)
 
 
 def collect_problems():
@@ -193,7 +204,26 @@ def generate_readme(problems, counts):
         "",
         "My algorithms and data structures practice from [LeetCode](https://leetcode.com). Every solution here was written by hand.",
         "",
-        f"**{total}** solved · {counts['easy']} easy · {counts['medium']} medium · {counts['hard']} hard",
+        " · ".join(
+            [
+                f"**{total}** solved",
+                *(
+                    [f"{counts['easy']} Easy"]
+                    if counts["easy"]
+                    else []
+                ),
+                *(
+                    [f"{counts['medium']} Medium"]
+                    if counts["medium"]
+                    else []
+                ),
+                *(
+                    [f"{counts['hard']} Hard"]
+                    if counts["hard"]
+                    else []
+                ),
+            ]
+        ),
         "",
         "![Coverage](./coverage.svg)",
         "",

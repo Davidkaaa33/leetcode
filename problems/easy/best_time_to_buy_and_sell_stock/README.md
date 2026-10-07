@@ -1,4 +1,4 @@
-# Best Time To Buy And Sell Stock
+# Best Time to Buy and Sell Stock
 
 **Difficulty:** Easy · **Language:** Python 3
 
