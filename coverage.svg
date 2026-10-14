@@ -1,11 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="880" height="387" viewBox="0 0 880 387" role="img" aria-label="LeetCode coverage: 25 of 4081 problems solved">
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="387" viewBox="0 0 880 387" role="img" aria-label="LeetCode coverage: 27 of 4082 problems solved">
 <style>
   .bg{fill:#0d1117}.tx{fill:#e6edf3}.dim{fill:#7d8590}.none{fill:#21262d}
   .e{fill:#3fb950}.m{fill:#d29922}.h{fill:#f85149}
 </style>
 <rect width="880" height="387" class="bg"/>
 <text x="20" y="24" class="tx" font-size="11" font-family="ui-monospace,monospace">Easy</text>
-<text x="860" y="24" class="dim" font-size="11" text-anchor="end" font-family="ui-monospace,monospace">15/971</text>
+<text x="860" y="24" class="dim" font-size="11" text-anchor="end" font-family="ui-monospace,monospace">17/971</text>
 <rect x="20" y="32" width="5" height="5" rx="1.25" class="e"/>
 <rect x="27" y="32" width="5" height="5" rx="1.25" class="e"/>
 <rect x="34" y="32" width="5" height="5" rx="1.25" class="e"/>
@@ -21,8 +21,8 @@
 <rect x="104" y="32" width="5" height="5" rx="1.25" class="e"/>
 <rect x="111" y="32" width="5" height="5" rx="1.25" class="e"/>
 <rect x="118" y="32" width="5" height="5" rx="1.25" class="e"/>
-<rect x="125" y="32" width="5" height="5" rx="1.25" class="none"/>
-<rect x="132" y="32" width="5" height="5" rx="1.25" class="none"/>
+<rect x="125" y="32" width="5" height="5" rx="1.25" class="e"/>
+<rect x="132" y="32" width="5" height="5" rx="1.25" class="e"/>
 <rect x="139" y="32" width="5" height="5" rx="1.25" class="none"/>
 <rect x="146" y="32" width="5" height="5" rx="1.25" class="none"/>
 <rect x="153" y="32" width="5" height="5" rx="1.25" class="none"/>
@@ -3108,7 +3108,7 @@
 <rect x="34" y="247" width="5" height="5" rx="1.25" class="none"/>
 <rect x="41" y="247" width="5" height="5" rx="1.25" class="none"/>
 <text x="20" y="272" class="tx" font-size="11" font-family="ui-monospace,monospace">Hard</text>
-<text x="860" y="272" class="dim" font-size="11" text-anchor="end" font-family="ui-monospace,monospace">0/982</text>
+<text x="860" y="272" class="dim" font-size="11" text-anchor="end" font-family="ui-monospace,monospace">0/983</text>
 <rect x="20" y="280" width="5" height="5" rx="1.25" class="none"/>
 <rect x="27" y="280" width="5" height="5" rx="1.25" class="none"/>
 <rect x="34" y="280" width="5" height="5" rx="1.25" class="none"/>
@@ -4091,5 +4091,6 @@
 <rect x="265" y="336" width="5" height="5" rx="1.25" class="none"/>
 <rect x="272" y="336" width="5" height="5" rx="1.25" class="none"/>
 <rect x="279" y="336" width="5" height="5" rx="1.25" class="none"/>
-<text x="20" y="363" class="dim" font-size="11" font-family="ui-monospace,monospace">25 of 4081 problems solved on LeetCode</text>
+<rect x="286" y="336" width="5" height="5" rx="1.25" class="none"/>
+<text x="20" y="363" class="dim" font-size="11" font-family="ui-monospace,monospace">27 of 4082 problems solved on LeetCode</text>
 </svg>

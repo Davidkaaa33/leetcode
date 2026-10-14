@@ -2,7 +2,7 @@
 
 My algorithms and data structures practice from [LeetCode](https://leetcode.com). Every solution here was written by hand.
 
-**25** solved · 15 Easy · 10 Medium
+**27** solved · 17 Easy · 10 Medium
 
 ![Coverage](./coverage.svg)
 
@@ -22,12 +22,14 @@ For each problem, I first try to get a correct solution on my own, even if it is
 | [Climbing Stairs](https://leetcode.com/problems/climbing-stairs/) | Easy | 2026-10-06 | [solution](problems/easy/climbing_stairs) |
 | [Contains Duplicate](https://leetcode.com/problems/contains-duplicate/) | Easy | 2026-10-06 | [solution](problems/easy/contains_duplicate) |
 | [Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/) | Easy | 2026-10-06 | [solution](problems/easy/linked_list_cycle) |
+| [Matrix Diagonal Sum](https://leetcode.com/problems/matrix-diagonal-sum/) | Easy | 2026-10-14 | [solution](problems/easy/matrix_diagonal_sum) |
 | [Maximum Depth of Binary Tree](https://leetcode.com/problems/maximum-depth-of-binary-tree/) | Easy | 2026-10-06 | [solution](problems/easy/maximum_depth_of_binary_tree) |
 | [Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/) | Easy | 2026-10-06 | [solution](problems/easy/merge_sorted_array) |
 | [Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/) | Easy | 2026-10-06 | [solution](problems/easy/merge_two_sorted_lists) |
 | [Number of 1 Bits](https://leetcode.com/problems/number-of-1-bits/) | Easy | 2026-10-06 | [solution](problems/easy/number_of_1_bits) |
 | [Reverse Bits](https://leetcode.com/problems/reverse-bits/) | Easy | 2026-10-06 | [solution](problems/easy/reverse_bits) |
 | [Same Tree](https://leetcode.com/problems/same-tree/) | Easy | 2026-10-06 | [solution](problems/easy/same_tree) |
+| [Transpose Matrix](https://leetcode.com/problems/transpose-matrix/) | Easy | 2026-10-14 | [solution](problems/easy/transpose_matrix) |
 | [Two Sum](https://leetcode.com/problems/two-sum/) | Easy | 2026-10-06 | [solution](problems/easy/two_sum) |
 | [Valid Palindrome](https://leetcode.com/problems/valid-palindrome/) | Easy | 2026-10-06 | [solution](problems/easy/valid_palindrome) |
 | [Valid Parentheses](https://leetcode.com/problems/valid-parentheses/) | Easy | 2026-10-06 | [solution](problems/easy/valid_parentheses) |
