@@ -29,8 +29,8 @@ jobs:
 
       - name: Configure Git identity
         run: |
-          git config user.name "Davidkaaa33"
-          git config user.email "233500698+Davidkaaa33@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
       - name: Install LeetCode sync CLI
         run: pip install leetcode-sync-cli==0.1.1
@@ -100,5 +100,5 @@ jobs:
             echo "Nothing to commit."
             exit 0
           fi
-          git commit -m "Auto sync LeetCode submissions"
+          git commit -m "Refresh LeetCode solutions and portfolio"
           git push
