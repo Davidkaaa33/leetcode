@@ -5,7 +5,6 @@ on:
   push:
     paths:
       - ".github/workflows/leetcode-sync.yml"
-      - "scripts/generate_readme.py"
   schedule:
     - cron: "0 21 * * *"
 
