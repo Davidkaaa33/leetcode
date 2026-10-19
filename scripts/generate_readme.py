@@ -65,6 +65,10 @@ def collect_problems():
                 }
             )
 
+    # Latest solve date first, with alphabetical ordering for same-day solutions.
+    problems.sort(key=lambda problem: problem["title"].casefold())
+    problems.sort(key=lambda problem: problem["solved"], reverse=True)
+
     return problems, counts
 
 
