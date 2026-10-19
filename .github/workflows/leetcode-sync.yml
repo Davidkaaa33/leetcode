@@ -2,6 +2,10 @@ name: Sync LeetCode
 
 on:
   workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/leetcode-sync.yml"
+      - "scripts/generate_readme.py"
   schedule:
     - cron: "0 21 * * *"
 
@@ -49,6 +53,12 @@ jobs:
           # The CLI prompts for a cookie on authentication failure. CI must never hang.
           leetcode-sync --sync < /dev/null
 
+      - name: Discard partially downloaded solutions if synchronization failed
+        if: steps.leetcode_sync.outcome == 'failure'
+        run: |
+          git restore --worktree -- problems
+          git clean -fd -- problems
+
       - name: Explain failed LeetCode sync
         if: steps.leetcode_sync.outcome == 'failure'
         run: |
@@ -63,6 +73,25 @@ jobs:
           LEETCODE_SESSION: ${{ secrets.LEETCODE_SESSION }}
           CSRFTOKEN: ${{ secrets.CSRFTOKEN }}
         run: python scripts/generate_readme.py
+
+      - name: Check solution order in README
+        run: |
+          python - <<'PY'
+          import re
+          from pathlib import Path
+          content = Path("README.md").read_text(encoding="utf-8")
+          lines = content.split("## Problems", 1)[1].splitlines()
+          dates = []
+          for row in lines:
+              if row.startswith("| ["):
+                  match = re.search(r"\|\s*(\d{4}-\d{2}-\d{2})\s*\|", row)
+                  if not match:
+                      raise ValueError(f"Missing solve date: {row}")
+                  dates.append(match.group(1))
+          if not dates or dates != sorted(dates, reverse=True):
+              raise AssertionError("README problems must be sorted newest first")
+          print(f"Validated {len(dates)} problems in descending solve-date order.")
+          PY
 
       - name: Commit and push changes
         run: |
