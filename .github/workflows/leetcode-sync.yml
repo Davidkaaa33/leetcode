@@ -35,10 +35,28 @@ jobs:
         run: mkdir -p "$HOME/.leetcode_sync"
 
       - name: Sync accepted LeetCode submissions
+        id: leetcode_sync
+        continue-on-error: true
+        timeout-minutes: 10
         env:
           LEETCODE_SESSION: ${{ secrets.LEETCODE_SESSION }}
           CSRFTOKEN: ${{ secrets.CSRFTOKEN }}
-        run: leetcode-sync --sync
+        run: |
+          if [[ -z "$LEETCODE_SESSION" || -z "$CSRFTOKEN" ]]; then
+            echo "::warning title=LeetCode authentication::LEETCODE_SESSION or CSRFTOKEN is missing."
+            exit 1
+          fi
+          # The CLI prompts for a cookie on authentication failure. CI must never hang.
+          leetcode-sync --sync < /dev/null
+
+      - name: Explain failed LeetCode sync
+        if: steps.leetcode_sync.outcome == 'failure'
+        run: |
+          echo "::warning title=LeetCode sync did not complete::Check or renew LEETCODE_SESSION and CSRFTOKEN in repository Actions secrets."
+          echo "### LeetCode sync needs attention" >> "$GITHUB_STEP_SUMMARY"
+          echo "The synchronization CLI failed (latest known cause: expired session cookies)." >> "$GITHUB_STEP_SUMMARY"
+          echo "Update **LEETCODE_SESSION** and **CSRFTOKEN** under Settings → Secrets and variables → Actions." >> "$GITHUB_STEP_SUMMARY"
+          echo "The existing solutions and generated README are kept; no new submissions are claimed." >> "$GITHUB_STEP_SUMMARY"
 
       - name: Generate portfolio README and coverage
         env:
