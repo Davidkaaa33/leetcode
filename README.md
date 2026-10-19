@@ -6,7 +6,7 @@ My algorithms and data structures practice from [LeetCode](https://leetcode.com)
 
 ![Coverage](./coverage.svg)
 
-_Synced nightly at 00:00 MSK via GitHub Actions. Progress and this grid regenerate automatically._
+_Portfolio updates automatically when new solutions are committed. GitHub Actions regenerates the progress grid and README._
 
 ## How I practice
 
