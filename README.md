@@ -2,7 +2,7 @@
 
 My algorithms and data structures practice from [LeetCode](https://leetcode.com). Every solution here was written by hand.
 
-**27** solved · 17 Easy · 10 Medium
+**36** solved · 25 Easy · 11 Medium
 
 ![Coverage](./coverage.svg)
 
@@ -16,6 +16,15 @@ For each problem, I first try to get a correct solution on my own, even if it is
 
 | Problem | Difficulty | Solved | Solution |
 | --- | --- | --- | --- |
+| [Container with Most Water](https://leetcode.com/problems/container-with-most-water/) | Medium | 2026-10-19 | [solution](problems/medium/container_with_most_water) |
+| [Find Pivot Index](https://leetcode.com/problems/find-pivot-index/) | Easy | 2026-10-19 | [solution](problems/easy/find_pivot_index) |
+| [Isomorphic Strings](https://leetcode.com/problems/isomorphic-strings/) | Easy | 2026-10-19 | [solution](problems/easy/isomorphic_strings) |
+| [Longest Continuous Increasing Subsequence](https://leetcode.com/problems/longest-continuous-increasing-subsequence/) | Easy | 2026-10-19 | [solution](problems/easy/longest_continuous_increasing_subsequence) |
+| [Partition Array into Three Parts with Equal Sum](https://leetcode.com/problems/partition-array-into-three-parts-with-equal-sum/) | Easy | 2026-10-19 | [solution](problems/easy/partition_array_into_three_parts_with_equal_sum) |
+| [Ransom Note](https://leetcode.com/problems/ransom-note/) | Easy | 2026-10-19 | [solution](problems/easy/ransom_note) |
+| [Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/) | Easy | 2026-10-19 | [solution](problems/easy/remove_duplicates_from_sorted_array) |
+| [Squares of a Sorted Array](https://leetcode.com/problems/squares-of-a-sorted-array/) | Easy | 2026-10-19 | [solution](problems/easy/squares_of_a_sorted_array) |
+| [Valid Anagram](https://leetcode.com/problems/valid-anagram/) | Easy | 2026-10-19 | [solution](problems/easy/valid_anagram) |
 | [Matrix Diagonal Sum](https://leetcode.com/problems/matrix-diagonal-sum/) | Easy | 2026-10-14 | [solution](problems/easy/matrix_diagonal_sum) |
 | [Transpose Matrix](https://leetcode.com/problems/transpose-matrix/) | Easy | 2026-10-14 | [solution](problems/easy/transpose_matrix) |
 | [Add Strings](https://leetcode.com/problems/add-strings/) | Easy | 2026-10-06 | [solution](problems/easy/add_strings) |
