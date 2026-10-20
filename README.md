@@ -2,7 +2,7 @@
 
 My algorithms and data structures practice from [LeetCode](https://leetcode.com). Every solution here was written by hand.
 
-**41** solved · 27 Easy · 14 Medium
+**42** solved · 27 Easy · 15 Medium
 
 ![Coverage](./coverage.svg)
 
@@ -16,6 +16,7 @@ For each problem, I first try to get a correct solution on my own, even if it is
 
 | Problem | Difficulty | Solved | Solution |
 | --- | --- | --- | --- |
+| [Jump Game II](https://leetcode.com/problems/jump-game-ii/) | Medium | 2026-10-21 | [solution](problems/medium/jump_game_ii) |
 | [Binary Search](https://leetcode.com/problems/binary-search/) | Easy | 2026-10-20 | [solution](problems/easy/binary_search) |
 | [Find First and Last Position of Element in Sorted Array](https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/) | Medium | 2026-10-20 | [solution](problems/medium/find_first_and_last_position_of_element_in_sorted_array) |
 | [Search a 2d Matrix](https://leetcode.com/problems/search-a-2d-matrix/) | Medium | 2026-10-20 | [solution](problems/medium/search_a_2d_matrix) |
