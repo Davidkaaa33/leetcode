@@ -2,7 +2,7 @@
 
 My algorithms and data structures practice from [LeetCode](https://leetcode.com). Every solution here was written by hand.
 
-**42** solved · 27 Easy · 15 Medium
+**44** solved · 29 Easy · 15 Medium
 
 ![Coverage](./coverage.svg)
 
@@ -16,9 +16,11 @@ For each problem, I first try to get a correct solution on my own, even if it is
 
 | Problem | Difficulty | Solved | Solution |
 | --- | --- | --- | --- |
-| [Jump Game II](https://leetcode.com/problems/jump-game-ii/) | Medium | 2026-10-21 | [solution](problems/medium/jump_game_ii) |
+| [Minimum Difference Between Highest and Lowest of K Scores](https://leetcode.com/problems/minimum-difference-between-highest-and-lowest-of-k-scores/) | Easy | 2026-10-22 | [solution](problems/easy/minimum_difference_between_highest_and_lowest_of_k_scores) |
+| [Summary Ranges](https://leetcode.com/problems/summary-ranges/) | Easy | 2026-10-22 | [solution](problems/easy/summary_ranges) |
 | [Binary Search](https://leetcode.com/problems/binary-search/) | Easy | 2026-10-20 | [solution](problems/easy/binary_search) |
 | [Find First and Last Position of Element in Sorted Array](https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/) | Medium | 2026-10-20 | [solution](problems/medium/find_first_and_last_position_of_element_in_sorted_array) |
+| [Jump Game II](https://leetcode.com/problems/jump-game-ii/) | Medium | 2026-10-20 | [solution](problems/medium/jump_game_ii) |
 | [Search a 2d Matrix](https://leetcode.com/problems/search-a-2d-matrix/) | Medium | 2026-10-20 | [solution](problems/medium/search_a_2d_matrix) |
 | [Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/) | Medium | 2026-10-20 | [solution](problems/medium/search_in_rotated_sorted_array) |
 | [Search Insert Position](https://leetcode.com/problems/search-insert-position/) | Easy | 2026-10-20 | [solution](problems/easy/search_insert_position) |
