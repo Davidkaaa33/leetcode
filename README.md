@@ -16,8 +16,8 @@ For each problem, I first try to get a correct solution on my own, even if it is
 
 | Problem | Difficulty | Solved | Solution |
 | --- | --- | --- | --- |
-| [Minimum Difference Between Highest and Lowest of K Scores](https://leetcode.com/problems/minimum-difference-between-highest-and-lowest-of-k-scores/) | Easy | 2026-10-22 | [solution](problems/easy/minimum_difference_between_highest_and_lowest_of_k_scores) |
-| [Summary Ranges](https://leetcode.com/problems/summary-ranges/) | Easy | 2026-10-22 | [solution](problems/easy/summary_ranges) |
+| [Minimum Difference Between Highest and Lowest of K Scores](https://leetcode.com/problems/minimum-difference-between-highest-and-lowest-of-k-scores/) | Easy | 2026-10-21 | [solution](problems/easy/minimum_difference_between_highest_and_lowest_of_k_scores) |
+| [Summary Ranges](https://leetcode.com/problems/summary-ranges/) | Easy | 2026-10-21 | [solution](problems/easy/summary_ranges) |
 | [Binary Search](https://leetcode.com/problems/binary-search/) | Easy | 2026-10-20 | [solution](problems/easy/binary_search) |
 | [Find First and Last Position of Element in Sorted Array](https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/) | Medium | 2026-10-20 | [solution](problems/medium/find_first_and_last_position_of_element_in_sorted_array) |
 | [Jump Game II](https://leetcode.com/problems/jump-game-ii/) | Medium | 2026-10-20 | [solution](problems/medium/jump_game_ii) |
